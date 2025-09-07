@@ -7,35 +7,61 @@
   <title>Happy Bin - Snadné recyklování ve vašem okolí</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.out.css">
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
     }
   </style>
-  </style>
 </head>
 
 <body class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
-  <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex justify-center items-center ">
-      <a href="/" class="flex items-center">
+  <!-- HEADER -->
+  <header class="p-6 border border-gray-300 bg-lime-100">
+    <div class="container mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="./index.html" class="flex items-center">
         <img src="./src/img/bin.png" alt="Ikona Happy Bin"
-          class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
+             class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
         <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
       </a>
+      
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex gap-6 text-blue-500 font-medium">
+        <a href="about.html" class="hover:text-blue-400">O nás</a>
+        <a href="privacy_policy.html" class="hover:text-blue-400">GDPR</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <div class="md:hidden relative">
+        <button id="menu-toggle" class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div id="menu" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+          <a href="about.html"
+             class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">O&nbsp;nás</a>
+          <a href="privacy_policy.html"
+             class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">GDPR</a>
+        </div>
+      </div>
+      
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto my-4 px-6 flex-grow flex flex-col py-12">
+  <!-- MAIN CONTENT -->
+  <main class="container mx-auto my-4 px-6 flex-grow flex flex-col py-12">
     <section class="mb-6">
       <h2 class="text-xl font-bold mb-3">♻️ Recyklace učiněná snadnou</h2>
       <p class="mb-3">Pojďte s námi udělat Brno a Prahu zelenějšími! "Happy Bin" je aplikace pro nalezení
         recyklačních kontejnerů ve vašem okolí a usnadňuje udržitelný životní styl.</p>
     </section>
-    <img src="src/img/home_screen_picture.png" alt="Ikona Happy Bin" class="mx-auto mb-8 max-w-md h-auto w-full">
-
+    <img src="src/img/home_screen_picture.png" alt="Ikona Happy Bin"
+         class="mx-auto mb-8 max-w-md h-auto w-full">
+  
     <section class="mb-6">
       <h2 class="text-xl font-bold mb-3">📍 Cíle projektu a jak to funguje</h2>
       <p class="mb-3">Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou
@@ -46,32 +72,43 @@
         <li>Získejte navigační směry přímo na místo kontejneru.</li>
       </ul>
     </section>
-    <img src="src/img/demo.png" alt="Ikona Happy Bin" class="mx-auto mb-10 max-w-md h-auto rounded-3xl w-full">
-
+    <img src="src/img/demo.png" alt="Ikona Happy Bin"
+         class="mx-auto mb-10 max-w-md h-auto rounded-3xl w-full">
+  
     <section class="mb-6">
       <h2 class="text-xl font-bold mb-3">📱 Stáhněte si aplikaci</h2>
       <p class="mb-3">Stáhněte si aplikaci "Happy Bin" a připojte se k nám v cestě za zelenějšími městy!</p>
     </section>
-
+  
     <section>
       <a href="https://play.google.com/store/apps/details?id=eu.juhu.properbin&pcampaignid=web_share">
         <img alt="Dostupné na Google Play"
-          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-          class="h-20 mx-auto" />
+             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             class="h-20 mx-auto" />
       </a>
     </section>
   </main>
+  
 
-
+  <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
     <div class="text-center gap-2">
-      <a href="/about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
       <a href="mailto:juraj@happybin.eu" class="text-blue-500 hover:text-blue-400">Kontakt</a>
     </div>
     <p class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
 
-
+  <!-- MENU TOGGLE SCRIPT -->
+  <script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    window.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 
 </html>

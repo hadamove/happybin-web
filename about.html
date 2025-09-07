@@ -7,7 +7,6 @@
   <title>Happy Bin - Snadné recyklování ve vašem okolí</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.out.css">
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -17,9 +16,10 @@
 
 <body class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
+  <!-- HEADER -->
   <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex justify-center items-center ">
-      <a href="/" class="flex items-center">
+    <div class="container mx-auto flex items-center justify-start">
+      <a href="./index.html" class="flex items-center">
         <img src="./src/img/bin.png" alt="Ikona Happy Bin"
           class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
         <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
@@ -27,46 +27,43 @@
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto my-4 px-6 flex-grow flex flex-col py-6">
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto my-4 px-6 flex-grow flex flex-col py-6">
     <section class="mb-6">
-      <h2 class="text-2xl font-bold mb-6 text-center">🧑🏻‍💻 Náš tým</h2>
+      <h2 class="text-2xl font-bold mb-6 text-left">🧑🏻‍💻 Náš tým</h2>
       <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/juraj.png" alt="Juraj" class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/juraj.png" alt="Juraj" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Juraj Šoltés</h3>
-          <p class="text-center md:text-left">Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem
-            projektu Happy Bin.</p>
+          <h3 class="font-bold text-lg text-left">Juraj Šoltés</h3>
+          <p class="text-left">Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem projektu Happy Bin.</p>
         </div>
       </div>
       <!-- Team member 2 -->
       <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/hugo.png" alt="Hugo" class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/hugo.png" alt="Hugo" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Hugo Adamove</h3>
-          <p class="text-center md:text-left">Student informatiky a nadšenec do designu, který se stará o uživatelské
-            rozhraní aplikace.</p>
+          <h3 class="font-bold text-lg text-left">Hugo Adamove</h3>
+          <p class="text-left">Student informatiky a nadšenec do designu, který se stará o uživatelské rozhraní aplikace.</p>
         </div>
       </div>
       <!-- Team member 3 -->
       <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/tereza.png" alt="Tereza"
-          class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/tereza.png" alt="Tereza" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Tereza Hrabinová</h3>
-          <p class="text-center md:text-left">Marketingová specialistka a copywriterka, která se v první řadě stará o
-            propagaci
-            aplikace.</p>
+          <h3 class="font-bold text-lg text-left">Tereza Hrabinová</h3>
+          <p class="text-left">Marketingová specialistka a copywriterka, která se v první řadě stará o propagaci aplikace.</p>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
-    <div class="text-center gap-2">
-      <a href="/about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
+    <div class="text-left gap-2">
+      <a href="./about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
       <a href="mailto:juraj@happybin.eu" class="text-blue-500 hover:text-blue-400">Kontakt</a>
     </div>
-    <p class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
+    <p class="text-left mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
 
 </body>
