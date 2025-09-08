@@ -24,13 +24,11 @@
       <a href="./index.html" class="flex items-center">
         <img src="./src/img/bin.png" alt="Ikona Happy Bin"
              class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
-        <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
+        <h1 data-i18n="header.brand" class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
       </a>
       
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex gap-6 text-blue-500 font-medium">
-        
-      </nav>
+      <!-- Desktop language selector (component) -->
+      <div data-lang-root class="hidden md:flex gap-6 text-blue-500 font-medium items-center"></div>
 
       <!-- Mobile hamburger -->
       <div class="md:hidden relative">
@@ -41,9 +39,9 @@
           </svg>
         </button>
         <div id="menu" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
-          <a href="about.html"
+          <a data-i18n="nav.about" href="about.html"
              class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">O&nbsp;nás</a>
-          <a href="privacy_policy.html"
+          <a data-i18n="nav.privacy" href="privacy_policy.html"
              class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">Privacy policy</a>
         </div>
       </div>
@@ -54,29 +52,25 @@
   <!-- MAIN CONTENT -->
   <main class="container mx-auto my-4 px-6 flex-grow flex flex-col py-12">
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">♻️ Recyklace učiněná snadnou</h2>
-      <p class="mb-3">Pojďte s námi udělat Brno a Prahu zelenějšími! "Happy Bin" je aplikace pro nalezení
+      <h2 data-i18n="home.heading" class="text-xl font-bold mb-3">♻️ Recyklace učiněná snadnou</h2>
+      <p data-i18n="home.lead" class="mb-3">Pojďte s námi udělat Brno a Prahu zelenějšími! "Happy Bin" je aplikace pro nalezení
         recyklačních kontejnerů ve vašem okolí a usnadňuje udržitelný životní styl.</p>
     </section>
     <img src="src/img/home_screen_picture.png" alt="Ikona Happy Bin"
          class="mx-auto mb-8 max-w-md h-auto w-full">
   
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">📍 Cíle projektu a jak to funguje</h2>
-      <p class="mb-3">Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou
+      <h2 data-i18n="home.section1.title" class="text-xl font-bold mb-3">📍 Cíle projektu a jak to funguje</h2>
+      <p data-i18n="home.section1.p" class="mb-3">Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou
         zkušenost, která podporuje zapojení každého do ochrany životního prostředí.</p>
-      <ul class="list-disc pl-5 mb-3">
-        <li>Vyberte typ materiálu, který chcete recyklovat.</li>
-        <li>Najděte na mapě nejbližší recyklační místa.</li>
-        <li>Získejte navigační směry přímo na místo kontejneru.</li>
-      </ul>
+      <ul data-i18n="home.section1.list" class="list-disc pl-5 mb-3"></ul>
     </section>
     <img src="src/img/demo.png" alt="Ikona Happy Bin"
          class="mx-auto mb-10 max-w-md h-auto rounded-3xl w-full">
   
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">📱 Stáhněte si aplikaci</h2>
-      <p class="mb-3">Stáhněte si aplikaci "Happy Bin" a připojte se k nám v cestě za zelenějšími městy!</p>
+      <h2 data-i18n="home.download.cta" class="text-xl font-bold mb-3">📱 Stáhněte si aplikaci</h2>
+      <p data-i18n="home.download.p" class="mb-3">Stáhněte si aplikaci "Happy Bin" a připojte se k nám v cestě za zelenějšími městy!</p>
     </section>
   
     <section>
@@ -92,23 +86,30 @@
   <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
     <div class="text-center flex justify-center items-center gap-8 text-blue-500 hover:text-blue-400">
-      <a href="about.html">O nás</a>
-      <a href="privacy_policy.html">Privacy policy</a>
+      <a data-i18n="footer.about" href="about.html">O nás</a>
+      <a data-i18n="footer.privacy" href="privacy_policy.html">Privacy policy</a>
     </div>
-    <p class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
+    <p data-i18n="footer.copyright" class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
 
   <!-- MENU TOGGLE SCRIPT -->
   <script>
-    const btn = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-    window.addEventListener('click', e => {
-      if (!btn.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.add('hidden');
+    // mobile menu toggle
+    (function () {
+      const btn = document.getElementById('menu-toggle');
+      const menu = document.getElementById('menu');
+      if (btn && menu) {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); });
+        window.addEventListener('click', e => {
+          if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.add('hidden');
+        });
       }
-    });
+    })();
   </script>
+  <!-- include i18n loader -->
+  <script src="./src/js/i18n.js" defer></script>
+  <!-- language selector component (reusable) -->
+  <script src="./src/js/lang-selector.js" defer></script>
 </body>
 
 </html>

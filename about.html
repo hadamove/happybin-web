@@ -18,12 +18,15 @@
 
   <!-- HEADER -->
   <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex items-center justify-start">
+    <div class="container mx-auto flex items-center justify-between">
       <a href="./index.html" class="flex items-center">
         <img src="./src/img/bin.png" alt="Ikona Happy Bin"
           class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
         <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
       </a>
+
+      <!-- Desktop language selector (component placeholder) -->
+      <div data-lang-root class="hidden md:flex gap-6 text-blue-500 font-medium items-center"></div>
     </div>
   </header>
 
@@ -59,12 +62,16 @@
 
   <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
-    <div class="text-left gap-2">
-      <a href="./about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
+    <div class="text-center flex justify-center items-center gap-8 text-blue-500 hover:text-blue-400">
       <a href="mailto:juraj@happybin.eu" class="text-blue-500 hover:text-blue-400">Kontakt</a>
     </div>
-    <p class="text-left mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
+    <p data-i18n="footer.copyright" class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
+
+  <!-- i18n loader (same path as index.html) -->
+  <script src="./src/js/i18n.js" defer></script>
+  <!-- language selector component (reusable) -->
+  <script src="./src/js/lang-selector.js" defer></script>
 
 </body>
 
