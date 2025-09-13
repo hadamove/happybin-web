@@ -8,7 +8,7 @@
     return `
       <div class="relative">
         <button class="hb-lang-btn flex items-center gap-3 p-1 rounded-full focus:outline-none bg-white/0 hover:bg-white/20 transition" aria-haspopup="true" aria-expanded="false" title="Jazyk">
-          <span class="hb-lang-flag text-6xl md:text-8xl leading-none">${flags[defaultLang]}</span>
+          <span class="hb-lang-flag text-[3.5rem] md:text-[3.5rem] leading-none">${flags[defaultLang]}</span>
           <svg class="w-4 h-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 011.14.98l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
           </svg>
