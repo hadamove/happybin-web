@@ -14,7 +14,7 @@
   </style>
 </head>
 
-<body class="flex flex-col h-screen justify-between bg-white text-gray-700">
+<body data-page="home" class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
   <!-- HEADER -->
   <header class="p-6 border border-gray-300 bg-lime-100">
@@ -26,6 +26,13 @@
              class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
         <h1 data-i18n="header.brand" class="text-[rem] md:text-[3rem] font-bold">Happy Bin</h1>
       </a>
+      
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex gap-6 items-center">
+        <a href="./index.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.home">Domov</a>
+        <a href="./about.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.about">O&nbsp;nás</a>
+        <a href="./privacy_policy.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.privacy">Privacy policy</a>
+      </nav>
       
       <!-- Desktop language selector (component) -->
       <div data-lang-root class="hidden md:flex gap-6 text-blue-500 font-medium items-center"></div>
@@ -39,6 +46,8 @@
           </svg>
         </button>
         <div id="menu" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+          <a data-i18n="nav.home" href="./index.html"
+             class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">Home</a>
           <a data-i18n="nav.about" href="about.html"
              class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">O&nbsp;nás</a>
           <a data-i18n="nav.privacy" href="privacy_policy.html"
@@ -85,10 +94,6 @@
 
   <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
-    <div class="text-center flex justify-center items-center gap-8 text-blue-500 hover:text-blue-400">
-      <a data-i18n="footer.about" href="about.html">O nás</a>
-      <a data-i18n="footer.privacy" href="privacy_policy.html">Privacy policy</a>
-    </div>
     <p data-i18n="footer.copyright" class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
 
@@ -104,6 +109,26 @@
           if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.add('hidden');
         });
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      function markCurrent() {
+        const page = document.body.dataset.page;
+        if (!page) return;
+        document.querySelectorAll('.nav-link').forEach(a => {
+          const href = a.getAttribute('href') || '';
+          if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
+            a.setAttribute('aria-current', 'page');
+            a.classList.add('font-bold', 'text-blue-700');
+          } else {
+            a.removeAttribute('aria-current');
+            a.classList.remove('font-bold', 'text-blue-700');
+          }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', markCurrent);
+      else markCurrent();
     })();
   </script>
   <!-- include i18n loader -->
