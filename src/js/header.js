@@ -28,10 +28,28 @@
         </svg>
       </button>
 
-      <div id="menu" class="hidden absolute right-0 mt-2 w-44 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
-        <a data-i18n="nav.home" href="./index.html" class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">Home</a>
-        <a data-i18n="nav.about" href="./about.html" class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">O&nbsp;nás</a>
-        <a data-i18n="nav.privacy" href="./privacy_policy.html" class="block px-4 py-2 text-blue-500 hover:bg-gray-100 hover:text-blue-400">Privacy policy</a>
+      <div id="menu" class="hidden absolute right-0 mt-2 w-44 bg-white border border-gray-300 rounded-lg shadow-lg z-50 flex flex-col items-center text-center">
+        <!-- Centered nav links -->
+        <a data-i18n="nav.home" href="./index.html"
+           class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">Home</a>
+        <a data-i18n="nav.about" href="./about.html"
+           class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">O&nbsp;nás</a>
+        <a data-i18n="nav.privacy" href="./privacy_policy.html"
+           class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">Privacy policy</a>
+
+        <div class="border-t border-gray-100 my-1 w-full"></div>
+
+        <!-- Mobile language selector (text button instead of flag) -->
+        <div class="px-4 py-2 w-full flex justify-center">
+          <div data-lang-root class="inline-flex w-auto justify-center">
+            <button class="hb-lang-btn text-blue-500 font-medium px-2 py-1 rounded focus:outline-none hover:bg-gray-100">
+              Select language
+              <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 011.14.98l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,6 +62,7 @@
     const menu = root.querySelector('#menu');
     if (btn && menu) {
       btn.addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('hidden'); });
+
       window.addEventListener('click', e => {
         if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.add('hidden');
       });
@@ -53,14 +72,15 @@
   function markCurrent(root) {
     const page = document.body.dataset.page;
     if (!page) return;
+
     root.querySelectorAll('.nav-link').forEach(a => {
       const href = a.getAttribute('href') || '';
       if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
         a.setAttribute('aria-current', 'page');
-        a.classList.add('font-bold', 'text-blue-700');
+        a.classList.add('font-bold', 'text-blue-700', 'bg-blue-100'); // highlight selected page
       } else {
         a.removeAttribute('aria-current');
-        a.classList.remove('font-bold', 'text-blue-700');
+        a.classList.remove('font-bold', 'text-blue-700', 'bg-blue-100');
       }
     });
   }
@@ -71,7 +91,6 @@
     root.dataset.hbHeaderInit = '1';
     root.innerHTML = markup();
     attachMenuHandlers(root);
-    // mark current after DOM exists
     markCurrent(root);
   }
 
