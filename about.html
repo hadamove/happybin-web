@@ -16,26 +16,8 @@
 
 <body data-page="about" class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
-  <!-- HEADER -->
-  <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex items-center justify-between">
-      <a href="./index.html" class="flex items-center">
-        <img src="./src/img/bin.png" alt="Ikona Happy Bin"
-          class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
-        <h1 class="text-[2.5rem] md:text-[2.5rem] font-bold">Happy Bin</h1>
-      </a>
-
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex gap-6 items-center">
-        <a href="./index.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.home">Home</a>
-        <a href="./about.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.about">O&nbsp;nás</a>
-        <a href="./privacy_policy.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.privacy">Privacy policy</a>
-      </nav>
-
-      <!-- Desktop language selector (component placeholder) -->
-      <div data-lang-root class="hidden md:flex gap-6 text-blue-500 font-medium items-center"></div>
-    </div>
-  </header>
+  <!-- HEADER (injected by component) -->
+  <div data-header-root></div>
 
   <!-- MAIN CONTENT -->
   <main class="container mx-auto p-6 my-4 flex-grow">
@@ -95,6 +77,8 @@
       else markCurrent();
     })();
   </script>
+  <!-- header component -->
+  <script src="./src/js/header.js" defer></script>
   <!-- i18n loader (same path as index.html) -->
   <script src="./src/js/i18n.js" defer></script>
   <!-- language selector component (reusable) -->

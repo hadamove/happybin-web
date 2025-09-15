@@ -714,6 +714,10 @@ video {
   width: 100%;
 }
 
+.w-44 {
+  width: 11rem;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -1068,5 +1072,9 @@ body {
 
   .md\:text-\[3rem\] {
     font-size: 3rem;
+  }
+
+  .md\:text-\[2\.75rem\] {
+    font-size: 2.75rem;
   }
 }
