@@ -1,4 +1,3 @@
-// reusable header component: injects header markup and attaches menu + current-link logic
 (function () {
   function markup() {
     return `
@@ -37,17 +36,17 @@
         <a data-i18n="nav.privacy" href="./privacy_policy.html"
            class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">Privacy policy</a>
 
-        <div class="border-t border-gray-100 my-1 w-full"></div>
-
-        <!-- Mobile language selector (text button instead of flag) -->
-        <div class="px-4 py-2 w-full flex justify-center">
-          <div data-lang-root class="inline-flex w-auto justify-center">
-            <button class="hb-lang-btn text-blue-500 font-medium px-2 py-1 rounded focus:outline-none hover:bg-gray-100">
-              Select language
-              <svg class="w-4 h-4 ml-1 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 011.14.98l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-              </svg>
-            </button>
+        <!-- Mobile language selector styled like nav link -->
+        <div class="w-full relative">
+          <button id="mobile-lang-btn"
+                  class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center"
+                  aria-haspopup="true" aria-expanded="false">
+            Select language
+          </button>
+          <div class="hb-lang-dropdown hidden absolute top-full left-0 w-full bg-white border border-gray-200 rounded-b-lg shadow-md flex flex-col z-50">
+            <button data-lang="cs" class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">🇨🇿 CS</button>
+            <button data-lang="sk" class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">🇸🇰 SK</button>
+            <button data-lang="en" class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">🇬🇧 EN</button>
           </div>
         </div>
       </div>
@@ -67,6 +66,31 @@
         if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.add('hidden');
       });
     }
+
+    // Mobile language dropdown
+    const langBtn = root.querySelector('#mobile-lang-btn');
+    const dropdown = root.querySelector('.hb-lang-dropdown');
+    if (langBtn && dropdown) {
+      langBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        dropdown.classList.toggle('hidden');
+      });
+
+      dropdown.querySelectorAll('[data-lang]').forEach(b => {
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          const lang = b.dataset.lang;
+          if (window.i18n && typeof window.i18n.setLang === 'function') {
+            window.i18n.setLang(lang);
+          }
+          dropdown.classList.add('hidden');
+        });
+      });
+
+      window.addEventListener('click', e => {
+        if (!langBtn.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
+      });
+    }
   }
 
   function markCurrent(root) {
@@ -77,7 +101,7 @@
       const href = a.getAttribute('href') || '';
       if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
         a.setAttribute('aria-current', 'page');
-        a.classList.add('font-bold', 'text-blue-700'); // highlight selected page
+        a.classList.add('font-bold', 'text-blue-700');
       } else {
         a.removeAttribute('aria-current');
         a.classList.remove('font-bold', 'text-blue-700');
@@ -86,12 +110,16 @@
   }
 
   function initHeader(root) {
-    if (!root) return;
-    if (root.dataset.hbHeaderInit) return;
+    if (!root || root.dataset.hbHeaderInit) return;
     root.dataset.hbHeaderInit = '1';
     root.innerHTML = markup();
     attachMenuHandlers(root);
     markCurrent(root);
+
+    // Re-initialize desktop language selector
+    if (window.hbLang && typeof window.hbLang.initAll === 'function') {
+      window.hbLang.initAll();
+    }
   }
 
   function initAll() {

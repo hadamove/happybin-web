@@ -4,17 +4,22 @@
   const defaultLang = 'cs';
 
   function createMarkup(root) {
-    const isMobileMenu = root.closest('#menu'); // detect mobile menu
+    const isMobileMenu = root.closest('#menu') !== null; // detect mobile menu
+    const currentLang = localStorage.getItem(storageKey) || defaultLang;
+
     return `
       <div class="relative w-full">
-        <button class="hb-lang-btn flex items-center justify-center gap-2 p-1 rounded focus:outline-none bg-white/0 hover:bg-white/20 transition w-full"
-                aria-haspopup="true" aria-expanded="false" title="Jazyk">
+        <button class="${isMobileMenu ? 'nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center' 
+                                       : 'hb-lang-btn flex items-center justify-center gap-2 p-1 rounded focus:outline-none bg-white/0 hover:bg-white/20 transition w-full'}"
+                aria-haspopup="true" aria-expanded="false" title="Jazyk"
+                data-mobile="${isMobileMenu ? '1' : '0'}">
           <span class="hb-lang-flag text-sm md:text-base leading-none">
-            ${isMobileMenu ? 'Select language' : flags[defaultLang]}
+            ${isMobileMenu ? 'Select language' : (flags[currentLang] || '🌐')}
           </span>
+          ${!isMobileMenu ? `
           <svg class="w-4 h-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.584l3.71-4.354a.75.75 0 011.14.98l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-          </svg>
+          </svg>` : ''}
         </button>
 
         <div class="hb-lang-dropdown hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50 overflow-hidden">
@@ -34,9 +39,10 @@
     root.dataset.hbLangInit = '1';
     root.innerHTML = createMarkup(root);
 
-    const btn = root.querySelector('.hb-lang-btn');
+    const btn = root.querySelector('[data-mobile]');
     const dropdown = root.querySelector('.hb-lang-dropdown');
     const flag = root.querySelector('.hb-lang-flag');
+    const isMobile = btn.dataset.mobile === '1';
 
     function markSelected(lang) {
       dropdown.querySelectorAll('[data-lang]').forEach(b => {
@@ -50,14 +56,19 @@
       });
     }
 
-    function applyLang(lang, skipSave) {
+    function applyLang(lang, skipSave = false) {
       if (!skipSave) localStorage.setItem(storageKey, lang);
-      if (flag.textContent !== 'Select language') {
-        flag.textContent = flags[lang] || '🌐'; // only change if not in mobile menu
+
+      // Only update flag if not mobile
+      if (!isMobile) {
+        flag.textContent = flags[lang] || '🌐';
       }
+
       btn.classList.add('ring-1', 'ring-blue-300');
       setTimeout(() => btn.classList.remove('ring-1', 'ring-blue-300'), 600);
+
       markSelected(lang);
+
       if (window.i18n && typeof window.i18n.setLang === 'function') {
         window.i18n.setLang(lang);
       }
@@ -80,6 +91,7 @@
       if (!root.contains(e.target)) dropdown.classList.add('hidden');
     });
 
+    // Apply initial language
     const initial = localStorage.getItem(storageKey) || defaultLang;
     applyLang(initial, true);
   }
