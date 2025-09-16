@@ -13,7 +13,7 @@
                                        : 'hb-lang-btn flex items-center justify-center gap-2 p-1 rounded focus:outline-none bg-white/0 hover:bg-white/20 transition w-full'}"
                 aria-haspopup="true" aria-expanded="false" title="Jazyk"
                 data-mobile="${isMobileMenu ? '1' : '0'}">
-          <span class="hb-lang-flag text-sm md:text-base leading-none">
+          <span class="hb-lang-flag text-sm md:text-3xl leading-none">
             ${isMobileMenu ? 'Select language' : (flags[currentLang] || '🌐')}
           </span>
           ${!isMobileMenu ? `
