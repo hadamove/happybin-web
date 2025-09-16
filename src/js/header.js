@@ -13,8 +13,8 @@
     <!-- Desktop nav -->
     <nav class="hidden md:flex gap-6 items-center">
       <a href="./index.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.home">Home</a>
-      <a href="./about.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.about">O&nbsp;nás</a>
-      <a href="./privacy_policy.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.privacy">Privacy policy</a>
+      <a href="./about.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.about">About</a>
+      <a href="./privacy_policy.html" class="nav-link text-blue-500 hover:text-blue-400" data-i18n="nav.privacy">Privacy Policy</a>
     </nav>
 
     <!-- Desktop language selector placeholder -->

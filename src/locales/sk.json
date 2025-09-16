@@ -1,7 +1,7 @@
 {
   "title": "Happy Bin - Jednoduché recyklovanie vo vašom okolí",
   "header": { "brand": "Happy Bin" },
-  "nav": { "about": "O nás", "privacy": "Privacy policy" },
+  "nav": { "home": "Domov", "about": "O nás", "privacy": "Súkromie" },
   "home": {
     "heading": "♻️ Recyklácia uľahčená",
     "lead": "Poďte s nami urobiť mestá zelenšími! \"Happy Bin\" je aplikácia na nájdenie kontajnerov na recyklovanie vo vašom okolí a uľahčuje udržateľný životný štýl.",
@@ -16,5 +16,5 @@
     },
     "download": { "cta": "📱 Stiahnite si aplikáciu", "p": "Stiahnite si aplikáciu \"Happy Bin\" a pridajte sa k nám na ceste za zelenšími mestami!" }
   },
-  "footer": { "about": "O nás", "privacy": "Privacy policy", "copyright": "© 2024 Happy Bin. Všetky práva vyhradené." }
+  "footer": { "copyright": "© 2024 Happy Bin. Všetky práva vyhradené." }
 }
