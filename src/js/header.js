@@ -77,10 +77,10 @@
       const href = a.getAttribute('href') || '';
       if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
         a.setAttribute('aria-current', 'page');
-        a.classList.add('font-bold', 'text-blue-700', 'bg-blue-100'); // highlight selected page
+        a.classList.add('font-bold', 'text-blue-700'); // highlight selected page
       } else {
         a.removeAttribute('aria-current');
-        a.classList.remove('font-bold', 'text-blue-700', 'bg-blue-100');
+        a.classList.remove('font-bold', 'text-blue-700');
       }
     });
   }
