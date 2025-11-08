@@ -2,6 +2,26 @@
   "title": "Happy Bin - Easy recycling near you",
   "header": { "brand": "Happy Bin" },
   "nav": { "home": "Home", "about": "About", "privacy": "Privacy policy" },
+  "about": {
+    "heading": "🧑🏻‍💻 Our team",
+    "team": {
+      "juraj": {
+        "name": "Juraj Šoltés",
+        "role": "Passionate developer aiming to improve the world with technology. The head and heart of the Happy Bin project.",
+        "alt": "Juraj"
+      },
+      "hugo": {
+        "name": "Hugo Adamove",
+        "role": "Computer science student and design enthusiast responsible for the app's user interface.",
+        "alt": "Hugo"
+      },
+      "tereza": {
+        "name": "Tereza Hrabinová",
+        "role": "Marketing specialist and copywriter who focuses on promoting the app.",
+        "alt": "Tereza"
+      }
+    }
+  },
   "home": {
     "heading": "♻️ Recycling made easy",
     "lead": "Help us make cities greener! \"Happy Bin\" is an app for finding recycling containers near you and makes sustainable living easier.",

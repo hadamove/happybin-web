@@ -22,29 +22,29 @@
   <!-- MAIN CONTENT -->
   <main class="container mx-auto my-4 px-6 sm:px-8 md:px-12 lg:px-24 flex-grow py-12">
     <section class="mb-6">
-      <h2 class="text-2xl font-bold mb-6">🧑🏻‍💻 Náš tým</h2>
+  <h2 data-i18n="about.heading" class="text-2xl font-bold mb-6">🧑🏻‍💻 Náš tým</h2>
 
       <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
-        <img src="./src/img/juraj.png" alt="Juraj" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/juraj.png" data-i18n-attr="alt" data-i18n="about.team.juraj.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg">Juraj Šoltés</h3>
-          <p>Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem projektu Happy Bin.</p>
+          <h3 data-i18n="about.team.juraj.name" class="font-bold text-lg">Juraj Šoltés</h3>
+          <p data-i18n="about.team.juraj.role">Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem projektu Happy Bin.</p>
         </div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
-        <img src="./src/img/hugo.png" alt="Hugo" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/hugo.png" data-i18n-attr="alt" data-i18n="about.team.hugo.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg">Hugo Adamove</h3>
-          <p>Student informatiky a nadšenec do designu, který se stará o uživatelské rozhraní aplikace.</p>
+          <h3 data-i18n="about.team.hugo.name" class="font-bold text-lg">Hugo Adamove</h3>
+          <p data-i18n="about.team.hugo.role">Student informatiky a nadšenec do designu, který se stará o uživatelské rozhraní aplikace.</p>
         </div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
-        <img src="./src/img/tereza.png" alt="Tereza" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+        <img src="./src/img/tereza.png" data-i18n-attr="alt" data-i18n="about.team.tereza.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg">Tereza Hrabinová</h3>
-          <p>Marketingová specialistka a copywriterka, která se v první řadě stará o propagaci aplikace.</p>
+          <h3 data-i18n="about.team.tereza.name" class="font-bold text-lg">Tereza Hrabinová</h3>
+          <p data-i18n="about.team.tereza.role">Marketingová specialistka a copywriterka, která se v první řadě stará o propagaci aplikace.</p>
         </div>
       </div>
     </section>
@@ -83,6 +83,19 @@
   <script src="./src/js/i18n.js" defer></script>
   <!-- language selector component (reusable) -->
   <script src="./src/js/lang-selector.js" defer></script>
+
+  <!-- Ensure i18n is reapplied after all components initialize (fixes injected header/lang timing) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // small delay to let header/lang-selector finish initialization, then reapply translations
+      setTimeout(() => {
+        const lang = localStorage.getItem('hb_lang') || 'cs';
+        if (window.i18n && typeof window.i18n.setLang === 'function') {
+          window.i18n.setLang(lang);
+        }
+      }, 60);
+    });
+  </script>
 
 </body>
 

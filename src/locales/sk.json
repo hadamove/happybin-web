@@ -2,6 +2,26 @@
   "title": "Happy Bin - Jednoduché recyklovanie vo vašom okolí",
   "header": { "brand": "Happy Bin" },
   "nav": { "home": "Domov", "about": "O nás", "privacy": "Súkromie" },
+  "about": {
+    "heading": "🧑🏻‍💻 Náš tím",
+    "team": {
+      "juraj": {
+        "name": "Juraj Šoltés",
+        "role": "Vášnivý vývojár, ktorý sa snaží zlepšiť svet pomocou technológií. Hlava a srdce projektu Happy Bin.",
+        "alt": "Juraj"
+      },
+      "hugo": {
+        "name": "Hugo Adamove",
+        "role": "Študent informatiky a nadšenec do dizajnu, ktorý sa stará o používateľské rozhranie aplikácie.",
+        "alt": "Hugo"
+      },
+      "tereza": {
+        "name": "Tereza Hrabinová",
+        "role": "Marketingová špecialistka a copywriterka, ktorá sa stará o propagáciu aplikácie.",
+        "alt": "Tereza"
+      }
+    }
+  },
   "home": {
     "heading": "♻️ Recyklácia uľahčená",
     "lead": "Poďte s nami urobiť mestá zelenšími! \"Happy Bin\" je aplikácia na nájdenie kontajnerov na recyklovanie vo vašom okolí a uľahčuje udržateľný životný štýl.",
