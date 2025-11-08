@@ -38,8 +38,8 @@
   },
   "privacy": {
     "heading": "Privacy Policy",
-    "lastUpdated": "Last updated: March 4, 2024",
-    "intro": { "p": "This privacy notice for Juraj Šoltés, born 6. 6, 1989, with permanent residence in V záhradách 2072/8B, 81102, Bratislava, Slovakia (\"we,\" \"us,\" or \"our\"), describes how we collect, use, and protect your personal information when you use our services (\"Services\")." },
+  "lastUpdated": "Last updated: November 8, 2025",
+  "intro": { "p": "This privacy notice is issued by Juraj Šoltés (born 6. 6, 1989), residing at V záhradách 2072/8B, 81102, Bratislava, Slovakia. This notice explains how we collect, use, and protect your personal information when you use our services (\"Services\")." },
     "what": { "title": "What Information Do We Collect?", "p": "We may collect personal information that you provide to us, such as mobile device ID, geolocation, and other information related to the use of our Services. This may include the use of cookies and tracking technologies, as well as your interactions with our app." },
     "how": { "title": "How Do We Use Your Information?", "p": "Your information is used to provide, improve, and administer the Services, to communicate with you, and for security and fraud prevention purposes. We may also share information with third-party service providers that help us operate the Services." },
     "location": { "title": "Location Data", "p": "If you use location-based features in our app, we may collect and process your geolocation information. You can control or disable this in your device settings." },
