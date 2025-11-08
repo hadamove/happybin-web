@@ -28,7 +28,6 @@
       </button>
 
       <div id="menu" class="hidden absolute right-0 mt-2 w-44 bg-white border border-gray-300 rounded-lg shadow-lg z-50 flex flex-col items-center text-center">
-        <!-- Centered nav links -->
         <a data-i18n="nav.home" href="./index.html"
            class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">Home</a>
         <a data-i18n="nav.about" href="./about.html"
@@ -36,7 +35,7 @@
         <a data-i18n="nav.privacy" href="./privacy_policy.html"
            class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center">Privacy policy</a>
 
-        <!-- Mobile language selector styled like nav link -->
+        <!-- Mobile language selector -->
         <div class="w-full relative">
           <button id="mobile-lang-btn"
                   class="nav-link block w-full px-4 py-3 text-lg md:text-base text-blue-500 hover:bg-gray-100 hover:text-blue-400 text-center"
@@ -107,6 +106,24 @@
         a.classList.remove('font-bold', 'text-blue-700');
       }
     });
+
+    // Update header <h1> based on current page
+    const headerTitle = root.querySelector('h1[data-i18n="header.brand"]');
+    if (headerTitle) {
+      switch(page) {
+        case 'home':
+          headerTitle.textContent = 'Happy Bin';
+          break;
+        case 'about':
+          headerTitle.textContent = 'About';
+          break;
+        case 'privacy':
+          headerTitle.textContent = 'Privacy Policy';
+          break;
+        default:
+          headerTitle.textContent = 'Happy Bin';
+      }
+    }
   }
 
   function initHeader(root) {
