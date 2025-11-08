@@ -1,8 +1,8 @@
 (function () {
   function markup() {
     return `
-<header class="p-6 border border-gray-300 bg-lime-100">
-  <div class="container mx-auto flex items-center justify-between">
+<header class="py-6 border border-gray-300 bg-lime-100">
+  <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24 flex items-center justify-between">
     <a href="./index.html" class="flex items-center">
       <img src="./src/img/bin.png" alt="Ikona Happy Bin"
            class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
