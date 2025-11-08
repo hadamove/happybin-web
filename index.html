@@ -7,71 +7,97 @@
   <title>Happy Bin - Snadné recyklování ve vašem okolí</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.out.css">
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
     }
   </style>
-  </style>
 </head>
 
-<body class="flex flex-col h-screen justify-between bg-white text-gray-700">
+<body data-page="home" class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
-  <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex justify-center items-center ">
-      <a href="/" class="flex items-center">
-        <img src="./src/img/bin.png" alt="Ikona Happy Bin"
-          class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
-        <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
-      </a>
-    </div>
-  </header>
+  <!-- HEADER (injected by component) -->
+  <div data-header-root></div>
 
-  <main class="max-w-2xl mx-auto my-4 px-6 flex-grow flex flex-col py-12">
+  <!-- MAIN CONTENT -->
+  <main class="container mx-auto my-4 px-6 sm:px-8 md:px-12 lg:px-24 flex-grow flex flex-col py-12">
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">♻️ Recyklace učiněná snadnou</h2>
-      <p class="mb-3">Pojďte s námi udělat Brno a Prahu zelenějšími! "Happy Bin" je aplikace pro nalezení
+      <h2 data-i18n="home.heading" class="text-xl font-bold mb-3">♻️ Recyklace učiněná snadnou</h2>
+      <p data-i18n="home.lead" class="mb-3">Pojďte s námi udělat města zelenějšími! "Happy Bin" je aplikace pro nalezení
         recyklačních kontejnerů ve vašem okolí a usnadňuje udržitelný životní styl.</p>
     </section>
-    <img src="src/img/home_screen_picture.png" alt="Ikona Happy Bin" class="mx-auto mb-8 max-w-md h-auto w-full">
-
+    <img src="src/img/home_screen_picture.png" alt="Ikona Happy Bin"
+         class="mx-auto mb-8 max-w-md h-auto w-full">
+  
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">📍 Cíle projektu a jak to funguje</h2>
-      <p class="mb-3">Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou
+      <h2 data-i18n="home.section1.title" class="text-xl font-bold mb-3">📍 Cíle projektu a jak to funguje</h2>
+      <p data-i18n="home.section1.p" class="mb-3">Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou
         zkušenost, která podporuje zapojení každého do ochrany životního prostředí.</p>
-      <ul class="list-disc pl-5 mb-3">
-        <li>Vyberte typ materiálu, který chcete recyklovat.</li>
-        <li>Najděte na mapě nejbližší recyklační místa.</li>
-        <li>Získejte navigační směry přímo na místo kontejneru.</li>
-      </ul>
+      <ol data-i18n="home.section1.list" class="list-decimal pl-5 mb-3"></ol>
     </section>
-    <img src="src/img/demo.png" alt="Ikona Happy Bin" class="mx-auto mb-10 max-w-md h-auto rounded-3xl w-full">
-
+    <img src="src/img/demo.png" alt="Ikona Happy Bin"
+         class="mx-auto mb-10 max-w-md h-auto rounded-3xl w-full">
+  
     <section class="mb-6">
-      <h2 class="text-xl font-bold mb-3">📱 Stáhněte si aplikaci</h2>
-      <p class="mb-3">Stáhněte si aplikaci "Happy Bin" a připojte se k nám v cestě za zelenějšími městy!</p>
+      <h2 data-i18n="home.download.cta" class="text-xl font-bold mb-3">📱 Stáhněte si aplikaci</h2>
+      <p data-i18n="home.download.p" class="mb-3">Stáhněte si aplikaci "Happy Bin" a připojte se k nám v cestě za zelenějšími městy!</p>
     </section>
-
+  
     <section>
       <a href="https://play.google.com/store/apps/details?id=eu.juhu.properbin&pcampaignid=web_share">
         <img alt="Dostupné na Google Play"
-          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-          class="h-20 mx-auto" />
+             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             class="h-20 mx-auto" />
       </a>
     </section>
   </main>
+  
 
-
+  <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
-    <div class="text-center gap-2">
-      <a href="/about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
-      <a href="mailto:juraj@happybin.eu" class="text-blue-500 hover:text-blue-400">Kontakt</a>
-    </div>
-    <p class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
+    <p data-i18n="footer.copyright" class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
 
-
+  <!-- MENU TOGGLE SCRIPT -->
+  <script>
+    // mobile menu toggle
+    (function () {
+      const btn = document.getElementById('menu-toggle');
+      const menu = document.getElementById('menu');
+      if (btn && menu) {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); });
+        window.addEventListener('click', e => {
+          if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.add('hidden');
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      function markCurrent() {
+        const page = document.body.dataset.page;
+        if (!page) return;
+        document.querySelectorAll('.nav-link').forEach(a => {
+          const href = a.getAttribute('href') || '';
+          if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
+            a.setAttribute('aria-current', 'page');
+            a.classList.add('font-bold', 'text-blue-700');
+          } else {
+            a.removeAttribute('aria-current');
+            a.classList.remove('font-bold', 'text-blue-700');
+          }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', markCurrent);
+      else markCurrent();
+    })();
+  </script>
+  <!-- header component -->
+  <script src="./src/js/header.js" defer></script>
+  <!-- include i18n loader -->
+  <script src="./src/js/i18n.js" defer></script>
+  <!-- language selector component (reusable) -->
+  <script src="./src/js/lang-selector.js" defer></script>
 </body>
 
 </html>

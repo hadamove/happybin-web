@@ -1,0 +1,54 @@
+{
+  "title": "Happy Bin - Snadné recyklování ve vašem okolí",
+  "header": { "brand": "Happy Bin" },
+  "nav": { "home": "Domů", "about": "O nás", "privacy": "Soukromí" },
+  "about": {
+    "heading": "🧑🏻‍💻 Náš tým",
+    "team": {
+      "juraj": {
+        "name": "Juraj Šoltés",
+        "role": "Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem projektu Happy Bin.",
+        "alt": "Juraj"
+      },
+      "hugo": {
+        "name": "Hugo Adamove",
+        "role": "Student informatiky a nadšenec do designu, který se stará o uživatelské rozhraní aplikace.",
+        "alt": "Hugo"
+      },
+      "tereza": {
+        "name": "Tereza Hrabinová",
+        "role": "Marketingová specialistka a copywriterka, která se v první řadě stará o propagaci aplikace.",
+        "alt": "Tereza"
+      }
+    }
+  },
+  "home": {
+    "heading": "♻️ Recyklace učiněná snadnou",
+    "lead": "Pojďte s námi udělat města zelenějšími! \"Happy Bin\" je aplikace pro nalezení recyklačních kontejnerů ve vašem okolí a usnadňuje udržitelný životní styl.",
+    "section1": {
+      "title": "📍 Cíle projektu a jak to funguje",
+      "p": "Naším cílem je zjednodušit recyklaci, zvýšit její dostupnost a vytvořit zábavnou zkušenost, která podporuje zapojení každého do ochrany životního prostředí.",
+      "list": [
+        "Vyberte typ materiálu, který chcete recyklovat.",
+        "Najděte na mapě nejbližší recyklační místa.",
+        "Získejte navigační směry přímo na místo kontejneru."
+      ]
+    },
+    "download": { "cta": "📱 Stáhněte si aplikaci", "p": "Stáhněte si aplikaci \"Happy Bin\" a připojte se k nám v cestě za zelenějšími městy!" }
+  },
+  "privacy": {
+    "heading": "Zásady ochrany osobních údajů",
+  "lastUpdated": "Aktualizováno: 8. listopadu 2025",
+  "intro": { "p": "Toto oznámení o ochraně osobních údajů vydává Juraj Šoltés (nar. 6. 6. 1989), s trvalým pobytem V záhradách 2072/8B, 81102, Bratislava, Slovensko. Tento dokument popisuje, jak shromažďujeme, používáme a chráníme vaše osobní údaje při používání našich služeb (\"Služby\")." },
+    "what": { "title": "Jaké informace shromažďujeme?", "p": "Můžeme shromažďovat osobní údaje, které nám poskytnete, jako je ID mobilního zařízení, geolokace a další informace související s používáním našich Služeb. To může zahrnovat používání cookies a sledovacích technologií a vaše interakce s naší aplikací." },
+    "how": { "title": "Jak používáme vaše informace?", "p": "Vaše informace používáme k poskytování, zlepšování a správě Služeb, ke komunikaci s vámi a k prevenci podvodů a zabezpečení. Můžeme také sdílet informace s poskytovateli služeb třetích stran, kteří nám pomáhají provozovat Služby." },
+    "location": { "title": "Lokace", "p": "Pokud používáte funkce založené na poloze v naší aplikaci, můžeme shromažďovat a zpracovávat informace o vaší poloze. Můžete to ovládat nebo zakázat v nastavení zařízení." },
+    "device": { "title": "ID mobilního zařízení", "p": "Můžeme shromažďovat a sdílet reklamní ID vašeho zařízení (např. Google Advertising ID) s partnery třetích stran, včetně Google AdMob, za účelem zobrazování personalizovaných reklam a analýzy používání aplikace. Sbírání a používání reklamního ID pro personalizované reklamy je založeno na vašem souhlasu. Souhlas můžete kdykoli spravovat nebo odvolat v nastavení ochrany soukromí zařízení resetováním reklamního ID nebo omezením sledování reklam." },
+    "share": { "title": "Sdílíme vaše informace?", "p": "Můžeme sdílet vaše informace s poskytovateli služeb třetích stran, kteří pomáhají s provozem našich Služeb. Nebudeme sdílet vaše informace pro marketingové účely bez vašeho souhlasu." },
+    "rights": { "title": "Vaše práva", "p": "Můžete mít určitá práva ohledně vašich osobních údajů, včetně práva přístupu, opravy nebo vymazání vašich dat. Můžete spravovat svá nastavení v zařízení nebo nás kontaktovat pro pomoc." },
+    "protect": { "title": "Jak chráníme vaše informace?", "p": "Implementujeme technická a organizační opatření k ochraně vašich údajů před neoprávněným přístupem, zveřejněním nebo změnou." },
+    "changes": { "title": "Změny těchto zásad", "p": "Tyto zásady ochrany osobních údajů můžeme čas od času aktualizovat. O významných změnách vás budeme informovat aktualizací data v horní části této stránky." },
+    "contact": { "title": "Kontaktujte nás", "p": "Pokud máte otázky nebo připomínky k této zásadě ochrany osobních údajů, kontaktujte nás na", "email": "mailto:juro.soltes@gmail.com" }
+  },
+  "footer": { "contact": "Kontakt", "copyright": "© 2024 Happy Bin. Všechna práva vyhrazena." }
+}

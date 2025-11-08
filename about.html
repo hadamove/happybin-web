@@ -7,7 +7,6 @@
   <title>Happy Bin - Snadné recyklování ve vašem okolí</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.out.css">
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -15,59 +14,88 @@
   </style>
 </head>
 
-<body class="flex flex-col h-screen justify-between bg-white text-gray-700">
+<body data-page="about" class="flex flex-col h-screen justify-between bg-white text-gray-700">
 
-  <header class="p-6 border-gray-300 border bg-lime-100">
-    <div class="container mx-auto flex justify-center items-center ">
-      <a href="/" class="flex items-center">
-        <img src="./src/img/bin.png" alt="Ikona Happy Bin"
-          class="h-10 w-10 md:h-14 md:w-14 mr-4 transition-transform duration-200 hover:scale-110">
-        <h1 class="text-3xl md:text-5xl font-bold">Happy Bin</h1>
-      </a>
-    </div>
-  </header>
+  <!-- HEADER (injected by component) -->
+  <div data-header-root></div>
 
-  <main class="max-w-2xl mx-auto my-4 px-6 flex-grow flex flex-col py-6">
+  <!-- MAIN CONTENT -->
+  <main class="container mx-auto my-4 px-6 sm:px-8 md:px-12 lg:px-24 flex-grow py-12">
     <section class="mb-6">
-      <h2 class="text-2xl font-bold mb-6 text-center">🧑🏻‍💻 Náš tým</h2>
-      <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/juraj.png" alt="Juraj" class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+  <h2 data-i18n="about.heading" class="text-2xl font-bold mb-6">🧑🏻‍💻 Náš tým</h2>
+
+      <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
+        <img src="./src/img/juraj.png" data-i18n-attr="alt" data-i18n="about.team.juraj.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Juraj Šoltés</h3>
-          <p class="text-center md:text-left">Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem
-            projektu Happy Bin.</p>
+          <h3 data-i18n="about.team.juraj.name" class="font-bold text-lg">Juraj Šoltés</h3>
+          <p data-i18n="about.team.juraj.role">Vášnivý vývojář s cílem zlepšit svět pomocí technologií. Hlavou a srdcem projektu Happy Bin.</p>
         </div>
       </div>
-      <!-- Team member 2 -->
-      <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/hugo.png" alt="Hugo" class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+
+      <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
+        <img src="./src/img/hugo.png" data-i18n-attr="alt" data-i18n="about.team.hugo.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Hugo Adamove</h3>
-          <p class="text-center md:text-left">Student informatiky a nadšenec do designu, který se stará o uživatelské
-            rozhraní aplikace.</p>
+          <h3 data-i18n="about.team.hugo.name" class="font-bold text-lg">Hugo Adamove</h3>
+          <p data-i18n="about.team.hugo.role">Student informatiky a nadšenec do designu, který se stará o uživatelské rozhraní aplikace.</p>
         </div>
       </div>
-      <!-- Team member 3 -->
-      <div class="flex flex-col md:flex-row items-center mb-8">
-        <img src="./src/img/tereza.png" alt="Tereza"
-          class="mx-auto md:mx-0 h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
+
+      <div class="flex flex-col md:flex-row md:items-start items-center mb-8">
+        <img src="./src/img/tereza.png" data-i18n-attr="alt" data-i18n="about.team.tereza.alt" class="h-24 w-24 md:mr-4 rounded-full mb-3 md:mb-0">
         <div>
-          <h3 class="font-bold text-lg text-center md:text-left">Tereza Hrabinová</h3>
-          <p class="text-center md:text-left">Marketingová specialistka a copywriterka, která se v první řadě stará o
-            propagaci
-            aplikace.</p>
+          <h3 data-i18n="about.team.tereza.name" class="font-bold text-lg">Tereza Hrabinová</h3>
+          <p data-i18n="about.team.tereza.role">Marketingová specialistka a copywriterka, která se v první řadě stará o propagaci aplikace.</p>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="p-6 border border-gray-300 bg-lime-100">
-    <div class="text-center gap-2">
-      <a href="/about.html" class="text-blue-500 hover:text-blue-400 px-4">O nás</a>
-      <a href="mailto:juraj@happybin.eu" class="text-blue-500 hover:text-blue-400">Kontakt</a>
+    <div class="text-center flex justify-center items-center gap-8 text-blue-500 hover:text-blue-400">
     </div>
-    <p class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
+    <p data-i18n="footer.copyright" class="text-center mt-4">© 2024 Happy Bin. Všechna práva vyhrazena.</p>
   </footer>
+
+  <script>
+    (function () {
+      function markCurrent() {
+        const page = document.body.dataset.page;
+        if (!page) return;
+        document.querySelectorAll('.nav-link').forEach(a => {
+          const href = a.getAttribute('href') || '';
+          if (href.includes(page) || (page === 'home' && (href === './index.html' || href === 'index.html' || href === '/'))) {
+            a.setAttribute('aria-current', 'page');
+            a.classList.add('font-bold', 'text-blue-700');
+          } else {
+            a.removeAttribute('aria-current');
+            a.classList.remove('font-bold', 'text-blue-700');
+          }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', markCurrent);
+      else markCurrent();
+    })();
+  </script>
+  <!-- header component -->
+  <script src="./src/js/header.js" defer></script>
+  <!-- i18n loader (same path as index.html) -->
+  <script src="./src/js/i18n.js" defer></script>
+  <!-- language selector component (reusable) -->
+  <script src="./src/js/lang-selector.js" defer></script>
+
+  <!-- Ensure i18n is reapplied after all components initialize (fixes injected header/lang timing) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // small delay to let header/lang-selector finish initialization, then reapply translations
+      setTimeout(() => {
+        const lang = localStorage.getItem('hb_lang') || 'cs';
+        if (window.i18n && typeof window.i18n.setLang === 'function') {
+          window.i18n.setLang(lang);
+        }
+      }, 60);
+    });
+  </script>
 
 </body>
 
